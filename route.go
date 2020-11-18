@@ -36,5 +36,5 @@ func (r Route) EvaluateArgs(i Input, o Output) bool {
 
 // Check that we have the correct number of args
 func (r Route) EvaluateArgCount(i Input) bool {
-	return r.MinArgs == len(i.args) - 2
+	return r.MinArgs <= len(i.args) - 2
 }

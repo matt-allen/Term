@@ -15,7 +15,7 @@ func NewRouter(r []Route, a []string) Router {
 }
 
 func (r Router) Handle() {
-	if len(r.in.args) < 2 {
+	if len(r.in.args) < 1 {
 		r.out.Fatal("Not enough args")
 	}
 	rt := getRoute(r.routes, r.in.args[1])
