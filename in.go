@@ -5,5 +5,9 @@ type Input struct {
 }
 
 func (i Input) GetArg(p int) string {
-	return i.args[p+2]
+	return i.args[p + 2]
+}
+
+func (i Input) GetArgCount() int {
+	return len(i.args) - 2
 }
