@@ -16,7 +16,7 @@ type ArgSpec struct {
 
 // Evaluate that this arg conditions have been satisfied
 func (as ArgSpec) evaluate(i Input) bool {
-	return !as.Validation(i.args[as.Position + 2])
+	return as.Validation(i.args[as.Position + 2])
 }
 
 func (as ArgSpec) isRequired(min int) bool {
