@@ -16,6 +16,9 @@ type ArgSpec struct {
 
 // Evaluate that this arg conditions have been satisfied
 func (as ArgSpec) evaluate(i Input) bool {
+	if (as.Position + 2) >= len(i.args) {
+		return false
+	}
 	return as.Validation(i.args[as.Position + 2])
 }
 
