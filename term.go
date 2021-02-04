@@ -18,7 +18,11 @@ func (r Router) Handle() {
 	if len(r.in.args) < 1 {
 		r.out.Fatal("Not enough args")
 	}
-	rt := getRoute(r.routes, r.in.args[1])
+	o := r.in.args[1]
+	if o == "help" {
+
+	}
+	rt := getRoute(r.routes, o)
 	if rt == nil {
 		r.out.Fatal("Invalid operation")
 	}
@@ -36,4 +40,11 @@ func getRoute(r []Route, o string) *Route {
 		}
 	}
 	return nil
+}
+
+func (r Router) printHelp() {
+	r.out.Write("Available options:\n")
+	for _, o := range r.routes {
+		r.out.Write(o.Operation)
+	}
 }
