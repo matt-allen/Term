@@ -21,7 +21,7 @@ func (r Router) Handle() {
 	o := r.in.args[1]
 	if o == "help" {
 		r.printHelp()
-		return
+		exit(1)
 	}
 	rt := getRoute(r.routes, o)
 	if rt == nil {
@@ -44,7 +44,7 @@ func getRoute(r []Route, o string) *Route {
 }
 
 func (r Router) printHelp() {
-	r.out.Write("Available options:\n")
+	r.out.Write("Available options:\n------------")
 	for _, o := range r.routes {
 		r.out.Write(o.Operation)
 	}
