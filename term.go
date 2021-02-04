@@ -21,6 +21,7 @@ func (r Router) Handle() {
 	o := r.in.args[1]
 	if o == "help" {
 		r.printHelp()
+		return
 	}
 	rt := getRoute(r.routes, o)
 	if rt == nil {
